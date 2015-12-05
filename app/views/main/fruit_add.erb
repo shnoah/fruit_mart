@@ -1,6 +1,11 @@
+<br>
+<br>
+<br>
+<br>
+
 <body class="account separate-inputs boxed" data-page="signup">
     <!-- BEGIN LOGIN BOX -->
-
+    
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3">
@@ -8,48 +13,35 @@
                     <i class="user-img icons-faces-users-03-1"></i>
                     
                     <form action="/main/fruit_add_process" method="POST" enctype="multipart/form-data">
-                        
-                        <div class="row">
-                        
-                            <div class="col-sm-6">
-                                <div class="append-icon">
-                                    <input type="text" name="share_name" id="share_name" class="form-control form-white" value="<%=current_user.name%>"  readonly>
-                                    <i class="icon-user"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm-6">
-                                <div class="ap`pend-icon">
-                                    <input type="text" name="share_university" id="share_university" class="form-control form-white" value="<%=current_user.university%>" readonly>
-                                    <!-- <i class="icon-briefcase"></i> -->
-                                </div>
-                            </div>
-                        </div>
-                        
                         <div class="append-icon">
-                            <input type="text" name="title" id="title" class="form-control form-white" placeholder="술집이름" required>
-                            <i class="icon-tag"></i>
+                            <h4>1. 과일 이름을 입력해주세요</h4>
+                            <input type="text" name="name" id="name" class="form-control form-white" placeholder="과일이름" required>
                         </div>
                         
+                        <br>
+                        <br>
+                        
+                        <h4>2. 과일의 가격과 수량을 입력해주세요</h4>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="append-icon">
-                                    <input type="text" name="main_menu" id="main_menu" class="form-control form-white" placeholder="대표메뉴" required autofocus>
-                                    <i class="icon-like"></i>
+                                    <input type="text" name="price" id="price" class="form-control form-white" placeholder="가격" required autofocus>
                                 </div>
                             </div>
                             
                             <div class="col-sm-6">
                                 <div class="append-icon">
-                                    <input type="text" name="contact" id="contact" class="form-control form-white" placeholder="술집연락처" required>
-                                    <i class="icon-call-end"></i>
+                                    <input type="text" name="quantity" id="quantity" class="form-control form-white" placeholder="수량" required>
                                 </div>
                             </div>
                         </div>
+                        
+                        <br>
                         
                         <!-- DAUM 주소 찾기 API -->
                         <BR>
-                        <input type="button" onclick="execDaumPostcode()" value="술집 주소 찾기">
+                        <h4>3. 과일의 원산지는 어디?</h4>
+                        <input type="button" onclick="execDaumPostcode()" value="과일 원산지 찾기(클릭)">
                         <br>
                         <input type="text" id="postcode" placeholder="우편번호" required readonly>
                         <input type="text" id="roadAddress"  placeholder="도로명주소" required readonly>
@@ -111,33 +103,29 @@
                         <!-- DAUM 지도 API 끝 -->
                         
                         <br>
+                        <br>
+                        <br>
+                        
                         <div class="append-icon">
-                            <input type=file name="my_image" id="my_image" class="form-control form-white" >
-                            <span class="help-block">&nbsp;&nbsp;술집간판 및 대표안주로 구성된 이미지만 업로드 가능합니다</span>
-                            <i class="icon-camera"></i>
+                        <h4>4. 과일 이미지 주소를 기입해주세요</h4>
+                            <textarea class="form-control form-white contents" rows="1" name="img" placeholder="과일 이미지 주소를 입력해주세요" required></textarea>     
                         </div>
+                        
+                        <br>
+                        <br>
                 
                         <div class="append-icon">
-                            <textarea class="form-control form-white contents" rows="3" name="contents" placeholder="술집소개를 간단하게 적어주세요" required></textarea>     
-                            <i class="icon-bubble"></i>
+                        <h4>5. 과일에 대한 간단한 코멘트를 입력해주세요</h4>
+                            <textarea class="form-control form-white contents" rows="1" name="comment" placeholder="과일소개를 간단하게 적어주세요" required></textarea>     
                         </div>
-                        
-                        <div class="append-icon">
-                            <input type="password" name="password" id="password" class="form-control form-white password" placeholder="Password" required>
-                            <i class="icon-lock"></i>
-                        </div>
-                        
-                        <center> <button type="submit" id="submit-form" class="btn btn-lg btn-dark m-t-20" data-style="expand-left">Share</button> </center>
+                        <br>
+                        <center> <button type="submit" id="submit-form" class="btn btn-lg btn-dark m-t-20" data-style="expand-left">과일추가</button> </center>
                     </form>
               
                 </div>
             </div>
         </div>
-        <p class="account-copyright">
-            <span>Copyright © 2015 </span><span>멋쟁이 공자처럼</span>&nbsp;&nbsp;&nbsp;<span>All rights reserved.</span>
-        </p>
     </div>
-    
     
     <!-- END LOCKSCREEN BOX -->
     <script src="../assets/global/plugins/jquery/jquery-1.11.1.min.js"></script>

@@ -2,10 +2,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
       
-      ##추가 (이름, 핸드폰번호)
+      ##추가 (이름, 핸드폰번호,마일리지)
       
       t.string :name,     null: false, default: ""
       t.string :phone,    null: false, default: ""
+      t.integer :mileage, null: false, default: 0
       
       ## Database authenticatable
       t.string :email,              null: false, default: ""

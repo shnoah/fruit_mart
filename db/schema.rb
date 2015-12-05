@@ -11,14 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151204021653) do
+ActiveRecord::Schema.define(version: 20151205110746) do
+
+  create_table "buckets", force: :cascade do |t|
+    t.string   "user_id",    null: false
+    t.string   "code",       null: false
+    t.integer  "quantity",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "fruits", force: :cascade do |t|
     t.integer  "code"
     t.string   "name"
+    t.string   "korname"
     t.integer  "price"
     t.integer  "quantity"
     t.string   "comment"
+    t.string   "address"
+    t.string   "img"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orderlists", force: :cascade do |t|
+    t.string   "name"
+    t.string   "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,6 +44,7 @@ ActiveRecord::Schema.define(version: 20151204021653) do
   create_table "users", force: :cascade do |t|
     t.string   "name",                   default: "", null: false
     t.string   "phone",                  default: "", null: false
+    t.integer  "mileage",                default: 0,  null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
