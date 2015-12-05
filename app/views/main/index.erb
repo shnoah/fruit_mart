@@ -2,84 +2,179 @@
     <div class="jumbotron"  style="background-image: url('bg.jpg');">
       <div class="container">
         <h1><br><br>승호마트</h1><br>
-        <p style="font-weight: 900;">웹프로그래밍 및 데이터베이스 과제입니다. <br>만든 사람은 노승호, 이종진, 김성중입니다.</p>
-        <p><a class="btn btn-default btn-lg" href="#" role="button">과일 추가하기</a></p>
+
+        <p style="font-weight: 900; color:white;">웹프로그래밍 및 데이터베이스 과제입니다. <br>만든 사람은 노승호, 이종진, 김성중입니다.</p>
+        <p> <a href = "/main/fruit_add"> <a class="btn btn-default btn-lg" href="#" role="button">과일 추가하기</a> </a> </p>
       </div>
     </div>
-
+    
     <div class="container">
+        <!-- devise 상태확인용 -->
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+ 
+      <!-- Example row of columns -->
+      <form action="/main/fruit_select" method="POST">
+      
+        <div class="row">  
+          <div class="col-md-4">
+            <h2>바나나</h2>
+            <div style="width:300px; height:300px;">
+            <img src="/image/banana.png" style="width: 300px; padding: 10px;"/>
+            </div>
+            
+            <p>멸종위기랍니다. 지금 먹어야합니다</p>
+            <p>가격 : 한송이 3000원</p>
+            수량 :
+            <select name = "banana">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          
+          <div class="col-md-4">
+            <h2>사과</h2>
+            <div style="width:300px; height:300px;">
+            <img src="/image/apple.png" style="width: 300px; padding: 10px;"/>
+            </div>
+            <p>아침에는 황금이랍니다</p>
+            <p>가격 : 개당 700원</p>
+            
+            수량 :
+            <select name = "apple">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+         
+          <div class="col-md-4">
+            <h2>귤</h2>
+            <div style="width:300px; height:300px;">
+            <img src="/image/orange.png" style="width: 300px; padding: 10px;"/>
+            </div>
+            <p>제주도에서 갓 공수해온 최상급 서귀포 감귤</p>
+            <p>가격 : 개당 450원</p>
+            
+            수량 :
+            <select name = "tangerine">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          
+    </div> <!-- /container -->
+    
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    
       <!-- Example row of columns -->
       <div class="row">
-
         <div class="col-md-4">
-          <h2>바나나</h2>
-          <p>image</p>
-          <p>멸종위기랍니다. 지금 먹어야합니다</p>
-          <p><a class="btn btn-default" href="#" role="button">장바구니 담기 &raquo;</a></p>
-        </div>
-        
-        <div class="col-md-4">
-          <h2>사과</h2>
-          <p>image</p>
-          <p>아침에는 황금이랍니다</p>
-          <p>
+          <h2>레몬</h2>
+          <div style="width:300px; height:300px;">
+          <img src="/image/lemon.png" style="width: 300px; padding: 10px;"/>
+          </div>
+          <p>시큼? 아닙니다 새콤입니다</p
+          <p>가격 : 개당 500원</p>
+          
           수량 :
-          <select>
+          <select name = "lemon" >
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
-            <option value="4">5</option>
-            <option value="4">6</option>
-            <option value="4">7</option>
-            <option value="4">8</option>
-            <option value="4">9</option>
-            <option value="4">10</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
           </select>
-          
-          <a class="btn btn-default btn-sm" href="#" role="button">장바구니 담기 &raquo;</a></p>
-        </div>
-       
-        <div class="col-md-4">
-          <h2>한라봉</h2>
-          <p>image</p>
-          <p>제주도에서 갓 공수해온 최상급 한라봉</p>
-          <p><a class="btn btn-default" href="#" role="button">장바구니 담기 &raquo;</a></p>
-        </div>
-    
-    </div> <!-- /container -->
-    
-    <br>
-    <br>
-    
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-
-        <div class="col-md-4">
-          <h2>바나나</h2>
-          <p>image</p>
-          <p>멸종위기랍니다. 지금 먹어야합니다</p>
-          <p><a class="btn btn-default" href="#" role="button">장바구니 담기 &raquo;</a></p>
         </div>
         
         <div class="col-md-4">
-          <h2>사과</h2>
-          <p>image</p>
-          <p>아침에는 황금이랍니다</p>
-          <p><a class="btn btn-default" href="#" role="button">장바구니 담기 &raquo;</a></p>
+          <h2>포도</h2>
+          <div style="width:300px; height:300px;">
+          <img src="/image/grape.png" style="width: 300px; padding: 10px;"/>
+          </div>
+          <p>포도를 먹고싶포또..</p>
+          <p>가격 : 한송이 2000원</p>
+          
+          수량 :
+          <select name = "grape" >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
         </div>
-       
+         
         <div class="col-md-4">
-          <h2>한라봉</h2>
-          <p>image</p>
-          <p>제주도에서 갓 공수해온 최상급 한라봉</p>
-          <p><a class="btn btn-default" href="#" role="button">장바구니 담기 &raquo;</a></p>
+          <h2>키위</h2>
+          <div style="width:300px; height:300px;">
+          <img src="/image/kiwi.png" style="width: 300px; padding: 10px;"/>
+          </div>
+          <p>골드키위 저리가라 내가 원조다</p>
+          <p>가격 : 개당 600원</p>
+          
+          수량 :
+          <select name = "kiwi" >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
         </div>
-    
-    </div> <!-- /container -->
-     
-       <hr>
-       <center><button type="button" class="btn btn-success">구매하기</button></center>
-       </div>
-  <br><br>
+      </div>
+    </form>
+      
+        <br>
+        <br>
+        <br>
+        
+        <hr>
+        
+        <center><a href="/main/baguni"><button type="button" class="btn btn-success">장바구니 담기</button></a></center>
+  </div><!-- /container -->
+<br
+><br>

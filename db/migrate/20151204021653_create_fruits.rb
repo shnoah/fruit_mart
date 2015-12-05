@@ -6,7 +6,7 @@ class CreateFruits < ActiveRecord::Migration
       t.string :name #물품명
       t.integer :price #가격
       t.integer :quantity #수량
-      
+      t.string :comment #코멘트
 
       t.timestamps null: false
     end
