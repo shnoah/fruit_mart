@@ -4,4 +4,25 @@
 <br>
 <br>
 
-<h1>장바구니 페이지야</h1>
+<h1>이번에 추가될 내역</h1>
+<% num = Fruit.last.id %>
+
+<%for i in 0..num-1%>
+    <%if @quantity[i]!='0'%> 
+        <%=@name[i]%>,  <%=@quantity[i]%><br>
+    <%else%>
+    
+    <%end%>
+<%end%>
+
+
+<h1>전체 주문내역</h1>
+
+<%for i in 0..num-1%>
+
+    <% @tmp=Bucket.where(name: @name[i]).take %>
+    <%if @tmp!=nil%>
+      <%= @tmp.name %>  <%= @tmp.quantity %> <br>
+    <%end%>
+<%end%>
+

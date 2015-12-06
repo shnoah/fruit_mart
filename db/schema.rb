@@ -14,9 +14,8 @@
 ActiveRecord::Schema.define(version: 20151205110746) do
 
   create_table "buckets", force: :cascade do |t|
-    t.string   "user_id",    null: false
-    t.string   "code",       null: false
-    t.integer  "quantity",   null: false
+    t.string   "name"
+    t.string   "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -24,10 +23,10 @@ ActiveRecord::Schema.define(version: 20151205110746) do
   create_table "fruits", force: :cascade do |t|
     t.integer  "code"
     t.string   "name"
-    t.string   "korname"
     t.integer  "price"
     t.integer  "quantity"
     t.string   "comment"
+    t.string   "farm_name"
     t.string   "address"
     t.string   "img"
     t.datetime "created_at", null: false

@@ -14,20 +14,20 @@
         <p class="alert"><%= alert %></p>
  
       <!-- Example row of columns -->
-      <form action="/main/fruit_select" method="POST">
+      <form action="/main/baguni" method="POST">
       
         <div class="row">  
         
         <% @fruits.each do |i| %>
           <div class="col-md-4" style="padding-bottom: 100px">
-            <h2><%=i.korname%></h2>
+            <h2><%=i.name%></h2>
             <div style="width:300px; height:300px;">
-            <img src="<%=i.img%>" style="width: 300px;"/>
+            <a href="/main/fruit_detail/<%=i.id%>"> <img src="<%=i.img%>" style="width: 300px;"/> </a>
             </div>
             <p><%=i.comment%></p>
             <p>가격 : 개당 <%=i.price%>원</p>
             수량 :
-            <select name = "<%=i.name%>">
+            <select name = "quantity[]">
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -40,21 +40,27 @@
               <option value="9">9</option>
               <option value="10">10</option>
             </select>
+            
+            <input type="hidden" name="name[]" value="<%=i.name%>">
+            
             <br>
-            <p> 재고 : <%=i.quantity%><p>
+            <p>재고 : <%=i.quantity%></p>
           </div>
         <% end %>
         </div>
-    </form>
-      
-        <br>
+    
         <br>
         <br>
         
         <hr>
         <div class="row">
-        <center><a href="/main/baguni"><button type="button" class="btn btn-success">장바구니 담기</button></a></center>
+        <center>
+          <input type="submit" class="btn btn-success" value="장바구니 담기">
+        </center>
         </div>
+        
+  </form>      
+        
   </div><!-- /container -->
 <br
 ><br>

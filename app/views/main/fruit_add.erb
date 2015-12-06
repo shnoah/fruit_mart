@@ -3,8 +3,6 @@
 <br>
 <br>
 
-<body class="account separate-inputs boxed" data-page="signup">
-    <!-- BEGIN LOGIN BOX -->
     
     <div class="container">
         <div class="row">
@@ -13,9 +11,20 @@
                     <i class="user-img icons-faces-users-03-1"></i>
                     
                     <form action="/main/fruit_add_process" method="POST" enctype="multipart/form-data">
-                        <div class="append-icon">
-                            <h4>1. 과일 이름을 입력해주세요</h4>
-                            <input type="text" name="name" id="name" class="form-control form-white" placeholder="과일이름" required>
+                    
+                        <h4>1. 과일 이름을 입력해주세요</h4>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="append-icon">
+                                    <input type="text" name="name" id="name" class="form-control form-white" placeholder="과일이름" required autofocus>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <div class="append-icon">
+                                    <input type="text" name="farm_name" id="farm_name" class="form-control form-white" placeholder="농장이름" required>
+                                </div>
+                            </div>
                         </div>
                         
                         <br>
@@ -119,7 +128,7 @@
                             <textarea class="form-control form-white contents" rows="1" name="comment" placeholder="과일소개를 간단하게 적어주세요" required></textarea>     
                         </div>
                         <br>
-                        <center> <button type="submit" id="submit-form" class="btn btn-lg btn-dark m-t-20" data-style="expand-left">과일추가</button> </center>
+                        <center> <button type="submit"  class="btn btn-lg btn-dark m-t-20" data-style="expand-left">과일추가</button> </center>
                     </form>
               
                 </div>
@@ -127,16 +136,3 @@
         </div>
     </div>
     
-    <!-- END LOCKSCREEN BOX -->
-    <script src="../assets/global/plugins/jquery/jquery-1.11.1.min.js"></script>
-    <script src="../assets/global/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>
-    <script src="../assets/global/plugins/gsap/main-gsap.min.js"></script>
-    <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../assets/global/plugins/icheck/icheck.min.js"></script>
-    <script src="../assets/global/plugins/backstretch/backstretch.min.js"></script>
-    <script src="../assets/global/plugins/bootstrap-loading/lada.min.js"></script>
-    <!--<script src="../assets/global/plugins/jquery-validation/jquery.validate.min.js"></script>-->
-    <!--<script src="../assets/global/plugins/jquery-validation/additional-methods.min.js"></script>-->
-    <script src="../assets/global/js/plugins.js"></script>
-    <script src="../assets/global/js/pages/login-v1.js"></script>
-</body>

@@ -1,28 +1,15 @@
 class MainController < ApplicationController
-    def fruit_select
-        
-        
-        @num_banana = pr 
-        @num_apple = 
-        @num_tangerine = 
-        @num_lemon = 
-        @num_grape = 
-        
-#       redirect_to "/main/baguni"
+
+    def index #메인
+        @fruits = Fruit.all 
     end
-    
-    def fruit_add
-    end
-    
-    def fruit_add_process
-        
+ 
+    def fruit_add_process #과일추가
         
         new_fruit= Fruit.new
         
         new_fruit.code = params[:code]
-
         new_fruit.address = params[:address]
-
         new_fruit.name = params[:name]
         new_fruit.price = params[:price]
         new_fruit.quantity = params[:quantity]
@@ -31,13 +18,30 @@ class MainController < ApplicationController
         
         new_fruit.save
         
+        #Bucket도 추가
+        
+        new_bucket= Bucket.new
+        
+        new_bucket.name = params[:name]
+        new_bucket.quantity = 0
+        
+        new_bucket.save
+        
+        redirect_to "/main/index"
     end
     
-    def baguni
+    def fruit_detail #상세페이지 
+        @this_fruit = Fruit.find(params[:id]) 
     end
     
-    def index
-        @fruits = Fruit.all 
+    def baguni #장바구니 
+    
+        @name = params[:name]
+        @quantity =params[:quantity]
+
     end
+    
+
+
 
 end
