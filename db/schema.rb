@@ -34,8 +34,9 @@ ActiveRecord::Schema.define(version: 20151205110746) do
   end
 
   create_table "orderlists", force: :cascade do |t|
+    t.string   "user_id"
     t.string   "name"
-    t.string   "quantity"
+    t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

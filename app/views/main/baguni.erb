@@ -3,31 +3,43 @@
 <br>
 <br>
 <br>
+<%if @quantity!=nil%>
 
-<h1>이번에 추가된 내역</h1>
-<% num = Fruit.last.id %>
-
-<%for i in 0..num-1%>
-    <%if @quantity[i]!='0'%> 
-   
-        <%=@name[i]%>,  <%=@quantity[i]%><br>
-
-     
-    <%else%>
-
+    <h1>이번에 추가된 내역</h1>
+    <% num = Fruit.last.id %>
+    
+    
+    <%for i in 0..num-1%>
+        <%if @quantity[i]!='0'%> 
+       
+            <%=@name[i]%>,  <%=@quantity[i]%><br>
+    
+         
+        <%else%>
+           
+        <%end%>
     <%end%>
-<%end%>
-
-
-
-
-<h1>전체 장바구니 내역</h1>
-
-<%for i in 0..num-1%>
-
-    <% @tmp=Bucket.where(name: @name[i]).take %>
-    <%if @tmp!=nil%>
-      <%= @tmp.name %>  <%= @tmp.quantity %> <br>
+    
+    
+    
+    <!-- 총 구매 금액, 구매시 추가되는 마일리지를 보여줍시다 -->
+    
+    <h1>전체 장바구니 내역</h1>
+    
+    <%for i in 0..num-1%>
+    
+        <% @tmp=Bucket.where(name: @name[i]).take %>
+        <%if @tmp!=nil%>
+          <%= @tmp.name %>  <%= @tmp.quantity %> <br>
+        <%end%>
     <%end%>
-<%end%>
+    
+    <a class="btn btn-default" href="order" onclick="return confirm('정말 주문하시겠습니까?')">주문하기</a>
 
+<%else%>
+
+    <h1>에러 발생</h1>
+
+
+
+<%end%>

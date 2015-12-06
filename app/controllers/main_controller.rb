@@ -1,15 +1,15 @@
 class MainController < ApplicationController
 
     def index #메인
+    
         @fruits = Fruit.all 
-        
-        
-        
-        
+    
     end
  
     def fruit_add_process #과일추가
         
+        
+        #수정 필요함
         new_fruit= Fruit.new
         
         new_fruit.code = params[:code]
@@ -32,33 +32,78 @@ class MainController < ApplicationController
         new_bucket.save
         
         redirect_to "/main/index"
+        
     end
     
     def fruit_detail #상세페이지 
+    
         @this_fruit = Fruit.find(params[:id]) 
+        
     end
     
     def baguni #장바구니 
-    
+
+
+        #메인에서 넘어온 과일의 이름과 수량    
         @name = params[:name]
         @quantity =params[:quantity]
-        
-        num = Fruit.last.id
-        
-         
-        for i in 0..num-1
-        
-            if @quantity[i]!='0'
-                
-                tmp_bucket = Bucket.where(name: @name[i])
-                tmp2 = @quantity[i].to_i
-                tmp_bucket.first.update_attribute(:quantity, tmp_bucket.first.quantity+tmp2)
-            
-            end
-        
-        end
-        
 
+        #과일 갯수만큼 반복
+        num = Fruit.last.id
+       
+        if @quantity!=nil           
+            for i in 0..num-1
+            #수량 0은 제외
+                if @quantity[i]!='0'
+                    #기존 장바구니 내용과 현재 요청을 합산
+                    tmp_bucket = Bucket.where(name: @name[i])
+                    tmp2 = @quantity[i].to_i
+                    tmp_bucket.first.update_attribute(:quantity, tmp_bucket.first.quantity+tmp2)
+                end            
+            end
+        end
+    end
+    
+    
+    
+    def order #주문하기
+       
+       num=Fruit.last.id       
+
+
+       for i in 1..num
+           
+           tmp_q=Bucket.find(i).quantity
+           fruit=Fruit.find(i)           
+        
+           #Fruit 감소
+           fruit.update_attribute(:quantity, fruit.quantity-tmp_q)       
+       
+           #Orderlist 추가 
+           if tmp_q!=0           
+               new_order = Orderlist.new
+               
+               if current_user
+                 new_order.user_id = current_user.email
+               end
+               
+               new_order.name = fruit.name
+               new_order.quantity = tmp_q
+    
+               new_order.save
+           end
+       
+           #bucket 초기화
+           Bucket.find(i).update_attribute(:quantity, 0)
+       end
+        
+    end
+    
+    def myorder 
+        
+        
+        @order = Orderlist.all
+        
     end
     
 

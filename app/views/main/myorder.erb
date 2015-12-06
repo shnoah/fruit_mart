@@ -1,0 +1,19 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1> 니 주문내역</h1>
+
+<%num = Orderlist.last.id%>
+<%for i in 1..num%>
+    <%if Orderlist.find(i).user_id==current_user.email%>
+        <%=Orderlist.find(i).name%>
+        <%=Orderlist.find(i).quantity%>    
+        <%=Orderlist.find(i).created_at.in_time_zone("Seoul").strftime("%Y/%m/%d %I:%M%p")%>
+        <br>
+    <%else%>
+        주문내역이 없다
+    <%end%>
+
+<%end%>
