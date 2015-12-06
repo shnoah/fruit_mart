@@ -6,6 +6,10 @@
 <h1> 니 주문내역</h1>
 
 <%num = Orderlist.last.id%>
+
+
+<%=current_user.name%>님의 현재 마일리지는 <%=current_user.mileage%>입니다.<br>
+
 <%for i in 1..num%>
     <%if Orderlist.find(i).user_id==current_user.email%>
         <%=Orderlist.find(i).name%>

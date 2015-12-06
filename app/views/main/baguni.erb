@@ -8,32 +8,45 @@
     <h1>이번에 추가된 내역</h1>
     <% num = Fruit.last.id %>
     
-    
+    <%sum=0%>
     <%for i in 0..num-1%>
         <%if @quantity[i]!='0'%> 
        
-            <%=@name[i]%>,  <%=@quantity[i]%><br>
-    
+           <%price=Fruit.where(name: @name[i]).take.price%>
+           <%tot=price*@quantity[i].to_i%>
+           <%sum+=tot%>
+           <%=@name[i]%>,  <%=@quantity[i]%>, <%=price%> //<%=tot%><br>
+            
          
         <%else%>
            
         <%end%>
     <%end%>
-    
+    <h3>total : <%=sum%>원입니다. 마일리지는 <%=(sum*0.01).ceil%>원 적립예정</h3>
     
     
     <!-- 총 구매 금액, 구매시 추가되는 마일리지를 보여줍시다 -->
     
     <h1>전체 장바구니 내역</h1>
     
+    <%sum2=0%>
     <%for i in 0..num-1%>
     
         <% @tmp=Bucket.where(name: @name[i]).take %>
-        <%if @tmp!=nil%>
-          <%= @tmp.name %>  <%= @tmp.quantity %> <br>
-        <%end%>
+        <% price2=Fruit.where(name: @name[i]).take.price%>
+        <%tot2 = price2 * @tmp.quantity.to_i %>
+        <%sum2+=tot2%>
+        
+        <%if @tmp!=nil && @tmp.quantity.to_i ==0 %>
+            <%else%>
+                <%= @tmp.name %>  <%= @tmp.quantity %> X <%=price2%> // <%=tot2%>
+            <%end%>
+                <br>
     <%end%>
+        <h3>total : <%=sum2%>원입니다. 마일리지는 <%=(sum2*0.01).ceil%>원 적립예정</h3>
+
     
+    <a class="btn btn-warning" href="reset" onclick="return confirm('정말 초기화하시겠습니까?')">초기화</a>
     <a class="btn btn-default" href="order" onclick="return confirm('정말 주문하시겠습니까?')">주문하기</a>
 
 <%else%>

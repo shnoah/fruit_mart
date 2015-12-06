@@ -67,15 +67,20 @@ class MainController < ApplicationController
     
     
     def order #주문하기
-       
-       num=Fruit.last.id       
+        num=Fruit.last.id       
 
+        
+        @sum = 0
+ 
 
        for i in 1..num
-           
            tmp_q=Bucket.find(i).quantity
            fruit=Fruit.find(i)           
-        
+         
+           #마일리지 계산
+           tot=fruit.price * tmp_q.to_i  
+           @sum+=tot
+                      
            #Fruit 감소
            fruit.update_attribute(:quantity, fruit.quantity-tmp_q)       
        
@@ -96,6 +101,21 @@ class MainController < ApplicationController
            #bucket 초기화
            Bucket.find(i).update_attribute(:quantity, 0)
        end
+       
+        user = User.where(email: current_user.email).take
+        user.update_attribute(:mileage, user.mileage+(@sum*0.01).ceil)
+       
+        
+    end
+    
+    def reset 
+       num=Fruit.last.id       
+
+       for i in 1..num
+                Bucket.find(i).update_attribute(:quantity, 0)
+       end
+       redirect_to "/main"
+       
         
     end
     
