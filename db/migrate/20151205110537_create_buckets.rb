@@ -3,7 +3,7 @@ class CreateBuckets < ActiveRecord::Migration
     create_table :buckets do |t|
             
       t.string  :name
-      t.string :quantity
+      t.integer :quantity
 
       t.timestamps null: false
     end

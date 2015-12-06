@@ -2,6 +2,10 @@ class MainController < ApplicationController
 
     def index #메인
         @fruits = Fruit.all 
+        
+        
+        
+        
     end
  
     def fruit_add_process #과일추가
@@ -38,6 +42,22 @@ class MainController < ApplicationController
     
         @name = params[:name]
         @quantity =params[:quantity]
+        
+        num = Fruit.last.id
+        
+         
+        for i in 0..num-1
+        
+            if @quantity[i]!='0'
+                
+                tmp_bucket = Bucket.where(name: @name[i])
+                tmp2 = @quantity[i].to_i
+                tmp_bucket.first.update_attribute(:quantity, tmp_bucket.first.quantity+tmp2)
+            
+            end
+        
+        end
+        
 
     end
     
