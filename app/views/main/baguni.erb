@@ -3,9 +3,11 @@
 <br>
 <br>
 <br>
+
 <%if @quantity!=nil%>
 
-    <h1>이번에 추가된 내역</h1>
+    <center> <h1><%= current_user.name%>님의 이번 주문 내역</h1> </center>
+   
     <% num = Fruit.last.id %>
     
     <%sum=0%>
@@ -13,39 +15,48 @@
         <%if @quantity[i]!='0'%> 
        
            <%price=Fruit.where(name: @name[i]).take.price%>
+           <% img=Fruit.where(name: @name[i]).take.img%>
            <%tot=price*@quantity[i].to_i%>
            <%sum+=tot%>
-           <%=@name[i]%>,  <%=@quantity[i]%>, <%=price%> //<%=tot%><br>
-            
-         
+           <center>
+           <img src="<%=img%>" style="width: 100px;"/> &nbsp; <%=@quantity[i]%>개,&nbsp;&nbsp; 가격: <%=price%>원&nbsp;X&nbsp;<%=@quantity[i]%>개&nbsp;=&nbsp;<%=tot%><br>
+           </center>
+    
         <%else%>
            
         <%end%>
     <%end%>
-    <h3>total : <%=sum%>원입니다. 마일리지는 <%=(sum*0.01).ceil%>원 적립예정</h3>
+    <br>
+    <center><h3>총 가격 : <%=sum%>원 입니다. 마일리지는 <%=(sum*0.01).ceil%>원 적립예정입니다.</h3><center>
     
     
-    <!-- 총 구매 금액, 구매시 추가되는 마일리지를 보여줍시다 -->
+   
+    <br>
+    <br>
     
-    <h1>전체 장바구니 내역</h1>
+    <center> <h1><%= current_user.name%>님의 전체 장바구니 내역</h1></center>
     
     <%sum2=0%>
     <%for i in 0..num-1%>
     
         <% @tmp=Bucket.where(name: @name[i]).take %>
         <% price2=Fruit.where(name: @name[i]).take.price%>
+        <% img2=Fruit.where(name: @name[i]).take.img%>
+        
         <%tot2 = price2 * @tmp.quantity.to_i %>
         <%sum2+=tot2%>
         
         <%if @tmp!=nil && @tmp.quantity.to_i ==0 %>
             <%else%>
-                <%= @tmp.name %>  <%= @tmp.quantity %> X <%=price2%> // <%=tot2%>
+                <img src="<%=img2%>" style="width: 100px;"/> &nbsp; <%= @tmp.quantity %>개,&nbsp;&nbsp; 가격: <%=price2%>원&nbsp;X&nbsp;<%= @tmp.quantity %>개&nbsp;=&nbsp;<%=tot2%><br>
             <%end%>
                 <br>
     <%end%>
-        <h3>total : <%=sum2%>원입니다. 마일리지는 <%=(sum2*0.01).ceil%>원 적립예정</h3>
+        <h3>총 가격 : <%=sum2%>원 입니다. 마일리지는 <%=(sum2*0.01).ceil%>원 적립예정입니다.</h3>
 
     
+    <br>
+    <br>
     <a class="btn btn-warning" href="reset" onclick="return confirm('정말 초기화하시겠습니까?')">초기화</a>
     <a class="btn btn-default" href="order" onclick="return confirm('정말 주문하시겠습니까?')">주문하기</a>
 

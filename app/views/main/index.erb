@@ -49,18 +49,19 @@
         <% end %>
         </div>
     
-        <br>
-        <br>
-        
         <hr>
         <div class="row">
         <center>
-          <input type="submit" class="btn btn-success" value="장바구니 담기/확인">
+        <%if user_signed_in?%>
+            <input type="submit" class="btn btn-success" value="장바구니 담기/확인">
+        <% else %>
+          <h2>주문을 하려면 로그인해주세요</h2>
+        <% end %>
         </center>
         </div>
         
   </form>      
         
   </div><!-- /container -->
-<br
-><br>
+<br>
+<br>
