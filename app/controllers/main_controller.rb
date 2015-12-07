@@ -9,10 +9,11 @@ class MainController < ApplicationController
     def fruit_add_process #과일추가
         
         
-        #수정 필요함
+        #Fruit 추가
         new_fruit= Fruit.new
         
         new_fruit.code = params[:code]
+        new_fruit.farm_name = params[:farm_name]
         new_fruit.address = params[:address]
         new_fruit.name = params[:name]
         new_fruit.price = params[:price]
@@ -22,7 +23,7 @@ class MainController < ApplicationController
         
         new_fruit.save
         
-        #Bucket도 추가
+        #Bucket 추가
         
         new_bucket= Bucket.new
         

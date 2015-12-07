@@ -10,9 +10,12 @@
                 <div class="account-wall">
                     <i class="user-img icons-faces-users-03-1"></i>
                     
+               
                     <form action="/main/fruit_add_process" method="POST" enctype="multipart/form-data">
                     
                         <h4>1. 과일 이름을 입력해주세요</h4>
+                        
+                        <input type=hidden name="code" id="code" value="<%=Fruit.last.id+1%>">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="append-icon">
@@ -25,6 +28,7 @@
                                     <input type="text" name="farm_name" id="farm_name" class="form-control form-white" placeholder="농장이름" required>
                                 </div>
                             </div>
+    
                         </div>
                         
                         <br>
@@ -47,14 +51,14 @@
                         
                         <br>
                         
-                        <!-- DAUM 주소 찾기 API -->
+                        <!-- DAUM 주소 찾기 API 
                         <BR>
                         <h4>3. 과일의 원산지는 어디?</h4>
                         <input type="button" onclick="execDaumPostcode()" value="과일 원산지 찾기(클릭)">
                         <br>
-                        <input type="text" id="postcode" placeholder="우편번호" required readonly>
-                        <input type="text" id="roadAddress"  placeholder="도로명주소" required readonly>
-                        <input type="text" id="jibunAddress" name="realAddress" placeholder="지번주소" required readonly>
+                        <input type="text" id="postcode" placeholder="우편번호" readonly>
+                        <input type="text" id="roadAddress"  placeholder="도로명주소" readonly>
+                        <input type="text" id="jibunAddress" name="realAddress" placeholder="지번주소" readonly>
                         <span id="guide" style="color:#999"></span>
                         
                         <script src="https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js"></script>
@@ -128,7 +132,7 @@
                             <textarea class="form-control form-white contents" rows="1" name="comment" placeholder="과일소개를 간단하게 적어주세요" required></textarea>     
                         </div>
                         <br>
-                        <center> <button type="submit"  class="btn btn-lg btn-dark m-t-20" data-style="expand-left">과일추가</button> </center>
+                        <center> <input type="submit"  class="btn btn-lg btn-dark m-t-20" value="과일 추가"> </center>
                     </form>
               
                 </div>
