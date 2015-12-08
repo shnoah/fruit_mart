@@ -1,4 +1,4 @@
-Fruit.create(code: 1, name: "바나나", price: 3000, quantity:100, comment:"멸종위기랍니다. 지금 먹어야합니다", farm_name:"케언스 델몬트농장", address:"오스트레일리아 퀸즐랜드 마리바", img:"/image/orange.png") 
+Fruit.create(code: 1, name: "바나나", price: 3000, quantity:100, comment:"멸종위기랍니다. 지금 먹어야합니다", farm_name:"케언스 델몬트농장", address:"오스트레일리아 퀸즐랜드 마리바", img:"/image/banana.png") 
 Fruit.create(code: 2, name: "사과", price: 700, quantity:100, comment:"아침에는 황금이랍니다", farm_name:"황토골 사과농장", address:"충청남도 예산군 삽교읍 상하리 217-10", img:"/image/apple.png")
 Fruit.create(code: 3, name: "귤", price: 450, quantity:100, comment:"제주도에서 갓 공수해온 최상급 서귀포 감귤", farm_name:"최남단 체험 감귤농장", address:"제주특별자치도 서귀포시 남원읍 남원리 최남단체험감귤농장", img:"/image/orange.png")
 Fruit.create(code: 4, name: "레몬", price: 500, quantity:100, comment:"시큼? 아닙니다 새콤입니다", farm_name:"제주 레몬농장", address:"제주특별자치도 서귀포시 안덕면 창천리", img:"/image/lemon.png")

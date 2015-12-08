@@ -1,67 +1,64 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron"  style="background-image: url('bg.jpg');">
-      <div class="container">
-        <h1><br><br>승호마트</h1><br>
+<div class="jumbotron"  style="background-image: url('bg.jpg');">
+  <div class="container">
+    <h1><br><br>승호마트</h1><br>
 
-        <p style="font-weight: 900; color:white;">웹프로그래밍 및 데이터베이스 과제입니다. <br>만든 사람은 노승호, 이종진, 김성중입니다.</p>
-        <p><a href="/main/fruit_add" class="btn btn-default btn-lg" href="#" role="button">과일 추가하기</a></p>
+    <p style="font-weight: 900; color:white;">웹프로그래밍 및 데이터베이스 과제입니다. <br>만든 사람은 노승호, 이종진, 김성중입니다.</p>
+    <p><a href="/main/fruit_add" class="btn btn-default btn-lg" href="#" role="button">과일 추가하기</a></p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Example row of columns -->
+  <form action="/main/baguni" method="POST">
+  
+    <div class="row">  
+    
+    <% @fruits.each do |i| %>
+      <div class="col-md-4" style="padding-bottom: 100px">
+        <h2><%=i.name%></h2>
+        <div style="width:300px; height:300px;">
+        <a href="/main/fruit_detail/<%=i.id%>"> <img src="<%=i.img%>" style="width: 300px;"/> </a>
+        </div>
+        <p><%=i.comment%></p>
+        <p>가격 : 개당 <%=i.price%>원</p>
+        수량 :
+        <select name = "quantity[]">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+        
+        <input type="hidden" name="name[]" value="<%=i.name%>">
+        
+        <br>
+        <p>재고 : <%=i.quantity%></p>
       </div>
+    <% end %>
+    </div>
+
+    <hr>
+    <div class="row">
+    <center>
+    <%if user_signed_in?%>
+        <input type="submit" class="btn btn-success" value="장바구니 담기/확인">
+    <% else %>
+      <h2>주문을 하려면 로그인해주세요</h2>
+    <% end %>
+    </center>
     </div>
     
-    <div class="container">
-        <!-- devise 상태확인용 -->
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
- 
-      <!-- Example row of columns -->
-      <form action="/main/baguni" method="POST">
-      
-        <div class="row">  
-        
-        <% @fruits.each do |i| %>
-          <div class="col-md-4" style="padding-bottom: 100px">
-            <h2><%=i.name%></h2>
-            <div style="width:300px; height:300px;">
-            <a href="/main/fruit_detail/<%=i.id%>"> <img src="<%=i.img%>" style="width: 300px;"/> </a>
-            </div>
-            <p><%=i.comment%></p>
-            <p>가격 : 개당 <%=i.price%>원</p>
-            수량 :
-            <select name = "quantity[]">
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-            
-            <input type="hidden" name="name[]" value="<%=i.name%>">
-            
-            <br>
-            <p>재고 : <%=i.quantity%></p>
-          </div>
-        <% end %>
-        </div>
+</form>      
     
-        <hr>
-        <div class="row">
-        <center>
-        <%if user_signed_in?%>
-            <input type="submit" class="btn btn-success" value="장바구니 담기/확인">
-        <% else %>
-          <h2>주문을 하려면 로그인해주세요</h2>
-        <% end %>
-        </center>
-        </div>
-        
-  </form>      
-        
-  </div><!-- /container -->
+</div><!-- /container -->
 <br>
 <br>

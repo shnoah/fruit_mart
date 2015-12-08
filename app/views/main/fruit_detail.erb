@@ -1,73 +1,73 @@
- <div class="container">
-      <div class="jumbotron">
+<div class="container">
+    <div class="jumbotron">
 <!-- 본문 -->
-        
-        
-        <center><h1><%= @this_fruit.name %></h1></center>
-        
-        <br>
-        <br>
-        
-        <center><img src="<%= @this_fruit.img %>" style="width: 300px;"/></center>
-        
-        <br>
-        
-        <center><h3><%= @this_fruit.comment %></h3></center> <br><br>
-        <br>
-        <h3>
-          &nbsp;&nbsp;&nbsp;&nbsp;<font color="red">가격 : </font>개당 <%= @this_fruit.price %>원 <br><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<font color="red">재고 수량 : </font><%= @this_fruit.quantity %> <br><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<font color="red">생산농장 : </font><%= @this_fruit.farm_name %> <br><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<font color="red">원산지 주소 : </font><%= @this_fruit.address %> <br><br>
-        </h3>
-        
-        <!-- 구글 map -->
-        <br>
-        
-        <center>
-        <div class="col-md-12">
-            <div class="panel panel-default map-panel">
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="map" id="simple-map">
-                    <iframe width=100% height=600px frameborder="0" style="border:0;  pointer-events:false" 
-                            src="https://www.google.com/maps/embed/v1/search?q=<%= @this_fruit.address %>&key=AIzaSyD3xMBqEeIvCJUWHFOWZdn5G1a-Nj8NX0I" 
-                            allowfullscreen>
-                    </iframe>
-                    </div>
+      
+      
+      <center><h1><%= @this_fruit.name %></h1></center>
+      
+      <br>
+      <br>
+      
+      <center><img src="<%= @this_fruit.img %>" style="width: 300px;"/></center>
+      
+      <br>
+      
+      <center><h3><%= @this_fruit.comment %></h3></center> <br><br>
+      <br>
+      <h3>
+        &nbsp;&nbsp;&nbsp;&nbsp;<font color="red">가격 : </font>개당 <%= @this_fruit.price %>원 <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<font color="red">재고 수량 : </font><%= @this_fruit.quantity %> <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<font color="red">생산농장 : </font><%= @this_fruit.farm_name %> <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<font color="red">원산지 주소 : </font><%= @this_fruit.address %> <br><br>
+      </h3>
+      
+      <!-- 구글 map -->
+      <br>
+      
+      <center>
+      <div class="col-md-12">
+          <div class="panel panel-default map-panel">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="map" id="simple-map">
+                  <iframe width=100% height=600px frameborder="0" style="border:0;  pointer-events:false" 
+                          src="https://www.google.com/maps/embed/v1/search?q=<%= @this_fruit.address %>&key=AIzaSyD3xMBqEeIvCJUWHFOWZdn5G1a-Nj8NX0I" 
+                          allowfullscreen>
+                  </iframe>
                   </div>
                 </div>
-                <!--<div class="panel-header">-->
-                <!--  <h3 class="panel-title"><strong>Simple</strong> Map</h3>-->
-                <!--</div>-->
               </div>
+              <!--<div class="panel-header">-->
+              <!--  <h3 class="panel-title"><strong>Simple</strong> Map</h3>-->
+              <!--</div>-->
             </div>
           </div>
-        </center>
-        <!-- 구글 map 끝 -->
-        
-        <br>
-        <br>
-        
-        <!-- 포스팅 시간 -->  
-        <p align="right">최종 수정 : <%= @this_fruit.updated_at.in_time_zone("Seoul").strftime("%Y/%m/%d %I:%M%p")%><p>
-     
-   
-        <br>
-        <br>
-
-        <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-            <!-- Buttons --> 
-            <center>
-                <a href="#" class="btn btn-warning" role="button">맨위로</a>
-                <a href="/" class="btn btn-warning" role="button">목록보기</a>
-            </center>
-            </div>
-            <div class="col-sm-4"></div>
         </div>
-    </div>
+      </center>
+      <!-- 구글 map 끝 -->
+      
+      <br>
+      <br>
+      
+      <!-- 포스팅 시간 -->  
+      <p align="right">최종 수정 : <%= @this_fruit.updated_at.in_time_zone("Seoul").strftime("%Y/%m/%d %I:%M%p")%><p>
+   
+ 
+      <br>
+      <br>
+
+      <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4">
+          <!-- Buttons --> 
+          <center>
+              <a href="#" class="btn btn-warning" role="button">맨위로</a>
+              <a href="/" class="btn btn-warning" role="button">목록보기</a>
+          </center>
+          </div>
+          <div class="col-sm-4"></div>
+      </div>
+  </div>
 </div>
 

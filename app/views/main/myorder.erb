@@ -1,9 +1,20 @@
+<body class="backg">
 <br>
 <br>
 <br>
 <br>
 <br>
-<h1> 니 주문내역</h1>
+<div class="jumbotron">
+
+    <div style="padding-left:50px">
+        <h2>회원정보</h2>
+        <h4> 이름 : <%=current_user.name%><br>
+            아이디 : <%=current_user.email%><br>
+            핸드폰 : <%=current_user.phone%><br>
+            마일리지 : <%=current_user.mileage%> 원</h4>
+    </div>
+<center>    
+<h2> <%=current_user.name%>님 의 주문내역</h2>
 
 <%num = Orderlist.last.id%>
 
@@ -17,7 +28,9 @@
         <%=Orderlist.find(i).created_at.in_time_zone("Seoul").strftime("%Y/%m/%d %I:%M%p")%>
         <br>
     <%else%>
-        주문내역이 없다
     <%end%>
 
 <%end%>
+</center>
+</div>
+</body>

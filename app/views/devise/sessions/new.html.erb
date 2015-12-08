@@ -1,18 +1,19 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<body class="backg">
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
   <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <div class="col-sm-6 col-md-4 col-md-offset-4"  style="background-color: lightgray;opacity: 0.9;border-radius: 25px;padding:10px">
                 <div class="account-wall">
                     <i class="user-img icons-faces-users-03"></i>
 
-<center><h2>안녕하세요 승호마트입니다</h2></center>
+<center><h2>안녕하세요 <br>승호마트입니다</h2></center>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
@@ -21,7 +22,7 @@
   <div class="field">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <%= f.label :email %><br />
+    ID (<%= f.label :email %> 형식)<br />
     <center>
     <%= f.email_field :email, autofocus: true %>
     </center>
@@ -43,6 +44,7 @@
   <div class="actions">
   <center>
     <%= f.submit "Log in" %>
+    <br>
   </center>
   </div>
 <% end %>
@@ -51,3 +53,4 @@
 </div>
 </div>
 </div>
+</body>

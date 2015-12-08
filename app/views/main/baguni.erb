@@ -1,9 +1,11 @@
+<body class="backg">
 <br>
 <br>
 <br>
 <br>
 <br>
-
+<div class="jumbotron">
+<center>
 <%if @quantity!=nil%>
 
     <center> <h1><%= current_user.name%>님의 이번 주문 내역</h1> </center>
@@ -62,8 +64,11 @@
 
 <%else%>
 
-    <h1>에러 발생</h1>
+    <h1>장바구니가 비었습니다.</h1>
 
 
 
 <%end%>
+</center>
+</div>
+</body>
