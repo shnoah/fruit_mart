@@ -4,7 +4,11 @@
 <br>
 <br>
 <br>
-<div class="jumbotron">
+<div class="col-md-2"></div>
+
+<div class="col-md-8" style="background-color:#F9F9F9;padding:20px;opacity:0.9;border-radius:25px;">
+
+
 <center>
 <%if @quantity!=nil%>
 
@@ -29,13 +33,13 @@
         <%end%>
     <%end%>
     <br>
-    <center><h3>총 가격 : <%=sum%>원 입니다. 마일리지는 <%=(sum*0.01).ceil%>원 적립예정입니다.</h3><center>
+    <center><h3>총 가격 : <abbr title="attribute"><%=sum%></abbr>원 입니다. 마일리지는 <abbr title="attribute"><%=(sum*0.01).ceil%></abbr>원 적립예정입니다.</h3><center>
     
     
    
     <br>
     <br>
-    
+    <hr>
     <center> <h1><%= current_user.name%>님의 전체 장바구니 내역</h1></center>
     
     <%sum2=0%>
@@ -54,7 +58,7 @@
             <%end%>
                 <br>
     <%end%>
-        <h3>총 가격 : <%=sum2%>원 입니다. 마일리지는 <%=(sum2*0.01).ceil%>원 적립예정입니다.</h3>
+        <h3>총 가격 : <abbr title="attribute"><%=sum2%></abbr>원 입니다. 마일리지는 <abbr title="attribute"><%=(sum2*0.01).ceil%></abbr>원 적립예정입니다.</h3>
 
     
     <br>
@@ -71,4 +75,6 @@
 <%end%>
 </center>
 </div>
+<div class="col-md-2"></div>
+
 </body>

@@ -4,33 +4,50 @@
 <br>
 <br>
 <br>
-<div class="jumbotron">
+<div class="col-md-2"></div>
+<div class="col-md-8" style="background-color:#F9F9F9;padding:20px;opacity:0.9;border-radius:25px;">
 
     <div style="padding-left:50px">
-        <h2>회원정보</h2>
-        <h4> 이름 : <%=current_user.name%><br>
+        <h2><strong><%=current_user.name%></strong>님의 회원정보입니다.</h2>
+        <h4> 
             아이디 : <%=current_user.email%><br>
             핸드폰 : <%=current_user.phone%><br>
             마일리지 : <%=current_user.mileage%> 원</h4>
     </div>
-<center>    
-<h2> <%=current_user.name%>님 의 주문내역</h2>
+    
+    <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+    <center>
+            <h2> <%=current_user.name%>님 의 주문내역</h2>
+            
+            <%num = Orderlist.last.id%>
+            
+            <table class="table table-striped">
+                <tr>
+                    <th>제품명</th>
+                    <th>수량</th>
+                    <th>주문시간</th>
+                </tr>
+            <%for i in 1..num%>
+                <%if Orderlist.find(i).user_id==current_user.email%>
+                <tr>
+                    <td><%=Orderlist.find(i).name%></td>
+                    <td><%=Orderlist.find(i).quantity%>  </td>  
+                    <td><%=Orderlist.find(i).created_at.in_time_zone("Seoul").strftime("%Y/%m/%d %I:%M%p")%></td>
+                   
+                </tr>    
+                <%else%>
+                <%end%>
+            
+            
+            
+            <%end%>
+            </table>
+            </center>
+            </div>
+    <div class="col-md-4"></div>
+        </div>
 
-<%num = Orderlist.last.id%>
-
-
-<%=current_user.name%>님의 현재 마일리지는 <%=current_user.mileage%>입니다.<br>
-
-<%for i in 1..num%>
-    <%if Orderlist.find(i).user_id==current_user.email%>
-        <%=Orderlist.find(i).name%>
-        <%=Orderlist.find(i).quantity%>    
-        <%=Orderlist.find(i).created_at.in_time_zone("Seoul").strftime("%Y/%m/%d %I:%M%p")%>
-        <br>
-    <%else%>
-    <%end%>
-
-<%end%>
-</center>
 </div>
-</body>
+<div class="col-md-2"></div>

@@ -21,7 +21,8 @@
         <div style="width:300px; height:300px;">
         <a href="/main/fruit_detail/<%=i.id%>"> <img src="<%=i.img%>" style="width: 300px;"/> </a>
         </div>
-        <p><%=i.comment%></p>
+        <h4>
+        <p><strong>"<%=i.comment%>"</strong></p>
         <p>가격 : 개당 <%=i.price%>원</p>
         수량 :
         <select name = "quantity[]">
@@ -41,7 +42,7 @@
         <input type="hidden" name="name[]" value="<%=i.name%>">
         
         <br>
-        <p>재고 : <%=i.quantity%></p>
+        <p>재고 : <%=i.quantity%></p></h4>
       </div>
     <% end %>
     </div>
